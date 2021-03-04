@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const fs = require('fs')
 const methodOverride = require('method-override')
-const data = require('../data/data.json')
+const dataJ = require('../data/data.json')
 
 const app = express()
 
@@ -15,7 +15,7 @@ const app = express()
 app.set('view engine', 'njk')
 
 // Body Parser middleware
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.use(methodOverride('_method'))
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 nunjucks.configure(path.join(__dirname, 'views'), {
     express: app,
     autoescape: true,
-    noCache: true 
+    noCache: true
 })
 
 app.get('/', (req, res) => {
@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 
 app.get('/Members', (req, res) => {
     res.render('index', {
-        members: data.members
+        members: dataJ.members
     })
 })
 
@@ -48,7 +48,7 @@ app.get('/form', (req, res) => {
 })
 
 app.get('/new_member', (req, res) => {
-    data.members
+    dataJ.members
     res.render('new')
 })
 
