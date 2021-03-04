@@ -1,0 +1,7 @@
+{% include "partials/header.njk" %}
+    <ul>
+        {% for member in members %}
+            <li>{{ member.name }}</li>
+        {% endfor %}
+    </ul>
+{% include "partials/footer.njk" %}

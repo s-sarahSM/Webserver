@@ -2,14 +2,31 @@
   "name": "jsau-webserver",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:ci": "echo 'Bonjour'"
+    "start": "node src/start.js",
+    "start:watch": "nodemon src/start.js",
+    "test": "jest",
+    "pretest:ci": "npm run lint",
+    "test:ci": "npm run test:coverage",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
-  "author": "",
+  "author": "Sarra KHELLAF SMAIAH",
   "license": "ISC",
   "dependencies": {
-    "express": "4.17.1"
+    "body-parser": "1.19.0",
+    "express": "4.17.1",
+    "method-override": "3.0.0",
+    "morgan": "1.10.0",
+    "nunjucks": "3.2.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "10.1.0",
+    "eslint": "7.21.0",
+    "eslint-config-usecases": "3.1.0",
+    "jest": "26.6.3",
+    "nodemon": "2.0.7",
+    "supertest": "6.1.3"
   }
 }

@@ -1,0 +1,44 @@
+{% extends 'base.njk' %}
+
+{% set title = 'formulaire' %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+<form action="/members" method="POST">
+    {% if messages.success %}
+    <div class="alert alert-success" role="alert">{{ messages.success }}</div>
+    {% endif %}
+    {% if messages.error %}
+    <div class="alert alert-danger" role="alert">{{ messages.error }}</div>
+    {% endif %}
+    <div class="mb-2">
+        <label for="name" class="form-label">name </label>
+        <input
+                type="text"
+                class="form-control {% if messages.name_error %}is-invalid{% endif %}"
+                id="name"
+                name="name"
+                value="{{ messages.name or '' }}">
+        <div class="invalid-feedback">{{ messages.name_error }}</div>
+    </div>
+    <div class="mb-2">
+        <label for="name" class="form-label">age</label>
+        <input
+                type="text"
+                class="form-control {% if messages.name_error %}is-invalid{% endif %}"
+                id="age"
+                name="age"
+                value="{{ messages.name or '' }}">
+        <div class="invalid-feedback">{{ messages.name_error }}</div>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">soumettre</button>
+    </div>
+</form>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
